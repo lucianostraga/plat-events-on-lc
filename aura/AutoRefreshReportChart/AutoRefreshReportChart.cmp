@@ -1,0 +1,22 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" 
+                access="global"
+                controller="AutoRefreshReportChartController">
+    
+    <ltng:require scripts="{!$Resource.cometd}" afterScriptsLoaded="{!c.onCometdLoaded}"/>
+
+    <aura:attribute name="sessionId" type="String"/>
+    <aura:attribute name="cometd" type="Object"/>
+    <aura:attribute name="cometdSubscriptions" type="Object[]"/>
+
+    <aura:attribute name="frameSrc" type="String"/>
+    <aura:attribute name="reportChartId" type="String" default="00Of4000002cjbKEAQ"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+        
+    <aura:registerEvent name="toastEvent" type="force:showToast"/>
+
+    <h1><b>CANDIDATES BY STAGE</b></h1>
+    <a href="javascript:void(0)"><iframe src="{!v.frameSrc}" scrolling="no" width="330px" height="250px" frameBorder="0"/></a>
+    
+
+</aura:component>
